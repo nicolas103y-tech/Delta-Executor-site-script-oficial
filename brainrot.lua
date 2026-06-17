@@ -1,23 +1,21 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-    Name = "🧠 Roube um Brainrot | Delta Executor",
-    AccentColor = Color3.fromRGB(180, 0, 255)
+    Name = "🧠 ROUBE UM BRAINROT - DELTA",
+    LoadingTitle = "Carregando Script Brainrot...",
+    AccentColor = Color3.fromRGB(180, 0, 255),
 })
 
-local Tab1 = Window:CreateTab("Roubo", Color3.fromRGB(180, 0, 255))
-for i = 1, 10 do Tab1:CreateToggle({Name = "Função Roubo " .. i, CurrentValue = false, Callback = function() end}) end
+local TabMovement = Window:CreateTab("🚀 Movement", Color3.fromRGB(0, 255, 255))
+-- (Fly, Noclip, Speed - mesma estrutura)
 
-local Tab2 = Window:CreateTab("Economia", Color3.fromRGB(0, 255, 100))
-for i = 1, 10 do Tab2:CreateToggle({Name = "Função Economia " .. i, CurrentValue = false, Callback = function() end}) end
+local TabRoubo = Window:CreateTab("🕵️ Roubo", Color3.fromRGB(180, 0, 255))
+TabRoubo:CreateToggle({Name = "Auto Roubar Brainrot", CurrentValue = false, Callback = function() end})
+TabRoubo:CreateToggle({Name = "Roubo Silencioso", CurrentValue = false, Callback = function() end})
+TabRoubo:CreateToggle({Name = "Auto Coletar Itens", CurrentValue = false, Callback = function() end})
 
-local Tab3 = Window:CreateTab("Defesa", Color3.fromRGB(255, 0, 0))
-for i = 1, 10 do Tab3:CreateToggle({Name = "Função Defesa " .. i, CurrentValue = false, Callback = function() end}) end
+local TabTroll = Window:CreateTab("😈 Troll", Color3.fromRGB(255, 0, 100))
+TabTroll:CreateToggle({Name = "Spam Chat", CurrentValue = false, Callback = function() end})
+TabTroll:CreateToggle({Name = "Clone Personagem", CurrentValue = false, Callback = function() end})
 
-local Tab4 = Window:CreateTab("Movimento", Color3.fromRGB(0, 255, 255))
-for i = 1, 10 do Tab4:CreateToggle({Name = "Função Movimento " .. i, CurrentValue = false, Callback = function() end}) end
-
-local Tab5 = Window:CreateTab("Troll", Color3.fromRGB(255, 100, 200))
-for i = 1, 10 do Tab5:CreateToggle({Name = "Função Troll " .. i, CurrentValue = false, Callback = function() end}) end
-
-Rayfield:Notify({Title = "✅ Brainrot Carregado!", Content = "Roube com sabedoria!", Duration = 5})
+Rayfield:Notify({Title = "🧠 Brainrot", Content = "Script carregado!", Duration = 5})
