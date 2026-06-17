@@ -1,24 +1,27 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-    Name = "🌱 Grow a Garden | Delta Executor",
+    Name = "🌱 GROW A GARDEN - DELTA EXECUTOR",
     LoadingTitle = "Carregando Jardim...",
-    AccentColor = Color3.fromRGB(0, 255, 100)
+    AccentColor = Color3.fromRGB(0, 255, 120),
 })
 
-local Tab1 = Window:CreateTab("Plantio", Color3.fromRGB(0, 255, 0))
-for i = 1, 10 do Tab1:CreateToggle({Name = "Função Plantio " .. i, CurrentValue = false, Callback = function() end}) end
+local TabMovement = Window:CreateTab("🚀 Movement", Color3.fromRGB(0, 255, 150))
+TabMovement:CreateToggle({Name = "Fly", CurrentValue = false, Callback = function(v) 
+    local Root = game.Players.LocalPlayer.Character.HumanoidRootPart
+    if v then Root.Anchored = true else Root.Anchored = false end 
+end})
+TabMovement:CreateToggle({Name = "Noclip", CurrentValue = false, Callback = function() end})
+TabMovement:CreateSlider({Name = "Velocidade", Range = {16, 250}, Increment = 10, CurrentValue = 60, Callback = function(v) end})
 
-local Tab2 = Window:CreateTab("Colheita", Color3.fromRGB(255, 215, 0))
-for i = 1, 10 do Tab2:CreateToggle({Name = "Função Colheita " .. i, CurrentValue = false, Callback = function() end}) end
+local TabFarming = Window:CreateTab("🌱 Plantio & Colheita", Color3.fromRGB(0, 200, 0))
+TabFarming:CreateToggle({Name = "Auto Plantar Todas Sementes", CurrentValue = false, Callback = function() end})
+TabFarming:CreateToggle({Name = "Auto Regar Plantas", CurrentValue = false, Callback = function() end})
+TabFarming:CreateToggle({Name = "Auto Colher Tudo", CurrentValue = false, Callback = function() end})
+TabFarming:CreateToggle({Name = "Auto Coletar Mel", CurrentValue = false, Callback = function() end})
 
-local Tab3 = Window:CreateTab("Economia", Color3.fromRGB(0, 200, 100))
-for i = 1, 10 do Tab3:CreateToggle({Name = "Função Economia " .. i, CurrentValue = false, Callback = function() end}) end
+local TabEconomy = Window:CreateTab("💰 Economia", Color3.fromRGB(255, 215, 0))
+TabEconomy:CreateToggle({Name = "Auto Farm Dinheiro", CurrentValue = false, Callback = function() end})
+TabEconomy:CreateToggle({Name = "Auto Vender Itens", CurrentValue = false, Callback = function() end})
 
-local Tab4 = Window:CreateTab("Automação", Color3.fromRGB(100, 255, 100))
-for i = 1, 10 do Tab4:CreateToggle({Name = "Função Automação " .. i, CurrentValue = false, Callback = function() end}) end
-
-local Tab5 = Window:CreateTab("Misc", Color3.fromRGB(150, 150, 150))
-for i = 1, 10 do Tab5:CreateToggle({Name = "Função Misc " .. i, CurrentValue = false, Callback = function() end}) end
-
-Rayfield:Notify({Title = "✅ Grow a Garden Carregado!", Content = "Bom cultivo!", Duration = 5})
+Rayfield:Notify({Title = "🌱 Grow a Garden", Content = "Script carregado!", Duration = 6})
