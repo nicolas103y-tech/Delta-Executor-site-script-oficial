@@ -1,23 +1,30 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-    Name = "🐾 Adopt Me | Delta Executor",
-    AccentColor = Color3.fromRGB(255, 105, 180)
+    Name = "🐾 ADOPT ME - DELTA EXECUTOR",
+    LoadingTitle = "Carregando Script de Pets...",
+    LoadingSubtitle = "Interface Fofa Premium",
+    AccentColor = Color3.fromRGB(255, 105, 180),
 })
 
-local Tab1 = Window:CreateTab("Pets", Color3.fromRGB(255, 105, 180))
-for i = 1, 10 do Tab1:CreateToggle({Name = "Função Pets " .. i, CurrentValue = false, Callback = function() end}) end
+local TabMovement = Window:CreateTab("🚀 Movement", Color3.fromRGB(0, 255, 255))
+TabMovement:CreateToggle({Name = "Fly", CurrentValue = false, Callback = function(v) 
+    local Root = game.Players.LocalPlayer.Character.HumanoidRootPart
+    if v then Root.Anchored = true else Root.Anchored = false end 
+end})
+TabMovement:CreateToggle({Name = "Noclip", CurrentValue = false, Callback = function() end})
+TabMovement:CreateSlider({Name = "Velocidade", Range = {16, 250}, Increment = 10, CurrentValue = 70, Callback = function() end})
 
-local Tab2 = Window:CreateTab("Trading", Color3.fromRGB(180, 0, 255))
-for i = 1, 10 do Tab2:CreateToggle({Name = "Função Trading " .. i, CurrentValue = false, Callback = function() end}) end
+local TabPets = Window:CreateTab("🐶 Pets", Color3.fromRGB(255, 105, 180))
+TabPets:CreateToggle({Name = "Auto Farm Bucks", CurrentValue = false, Callback = function() end})
+TabPets:CreateToggle({Name = "Auto Hatch Eggs", CurrentValue = false, Callback = function() end})
+TabPets:CreateToggle({Name = "Auto Age Up Pets", CurrentValue = false, Callback = function() end})
 
-local Tab3 = Window:CreateTab("Casas & Veículos", Color3.fromRGB(0, 200, 255))
-for i = 1, 10 do Tab3:CreateToggle({Name = "Função Casas " .. i, CurrentValue = false, Callback = function() end}) end
+local TabTrading = Window:CreateTab("🤝 Trading", Color3.fromRGB(180, 0, 255))
+TabTrading:CreateToggle({Name = "Auto Accept Trades", CurrentValue = false, Callback = function() end})
 
-local Tab4 = Window:CreateTab("Eventos", Color3.fromRGB(255, 165, 0))
-for i = 1, 10 do Tab4:CreateToggle({Name = "Função Eventos " .. i, CurrentValue = false, Callback = function() end}) end
+local TabMisc = Window:CreateTab("🔧 Misc", Color3.fromRGB(150, 150, 150))
+TabMisc:CreateToggle({Name = "Anti-AFK", CurrentValue = true, Callback = function() end})
+TabMisc:CreateButton({Name = "Rejoin Server", Callback = function() game:GetService("TeleportService"):Teleport(game.PlaceId) end})
 
-local Tab5 = Window:CreateTab("Misc", Color3.fromRGB(150, 150, 150))
-for i = 1, 10 do Tab5:CreateToggle({Name = "Função Misc " .. i, CurrentValue = false, Callback = function() end}) end
-
-Rayfield:Notify({Title = "✅ Adopt Me Carregado!", Content = "Divirta-se com seus pets!", Duration = 5})
+Rayfield:Notify({Title = "🐾 Adopt Me", Content = "Script carregado com sucesso!", Duration = 6})
